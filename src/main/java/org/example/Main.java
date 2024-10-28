@@ -6,13 +6,14 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
+
         //Testing - Seems to work, cant set fields to null without error and message
         Person test = new Person("Jari", "Testar", "epost");
         /*test.getSummary();
         Person test2 = new Person("Test", "igen då", "mmm");
         test2.setEmail("kk");
         test2.getSummary();*/
-
+        /*
         //Testing if I should use copy of string for getter
         String changingNameTest = test.getFirstName();
         changingNameTest = changingNameTest + "i";
@@ -35,5 +36,8 @@ public class Main {
         task2.getSummary(); //assigned false with no assignee
         task2.setAssignee(test);
         task2.getSummary(); //assigned true with assignee
+        */
+        Person person = new Person("Jari", "Testar", "test@test");
+        System.out.println(person.getSummary());
     }
 }

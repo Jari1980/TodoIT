@@ -23,8 +23,18 @@ public class Person {
         this.id = counter++;
     }
 
-    public void getSummary(){
-        System.out.println("id: " + id + "\nname: " + firstName + " " + lastName + "\nemail: " + email);
+    public String getSummary(){
+        //System.out.println("id: " + id + "\nname: " + firstName + " " + lastName + "\nemail: " + email);
+        StringBuilder sb = new StringBuilder();
+        sb.append("id: ");
+        sb.append(id);
+        sb.append("\nname: ");
+        sb.append(firstName);
+        sb.append(" ");
+        sb.append(lastName);
+        sb.append("\nemail: ");
+        sb.append(email);
+        return sb.toString();
     }
 
     public String getFirstName() {
