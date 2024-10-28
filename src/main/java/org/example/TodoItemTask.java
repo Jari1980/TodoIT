@@ -23,11 +23,25 @@ public class TodoItemTask {
         this.id = counter++;
     }
 
-    public void getSummary(){
-        System.out.println("id: " + id + "\nassigned: " + assigned + "\ntodoItem: " + todoItem.getTitle());
-        if (assignee != null){
-            System.out.println("assignee: " + assignee.getFirstName() + " " + assignee.getLastName());
+    public String getSummary(){
+        //System.out.println("id: " + id + "\nassigned: " + assigned + "\ntodoItem: " + todoItem.getTitle());
+        //if (assignee != null){
+        //   System.out.println("assignee: " + assignee.getFirstName() + " " + assignee.getLastName());
+        //}
+        StringBuilder sb = new StringBuilder();
+        sb.append("id: ");
+        sb.append(id);
+        sb.append("\nassigned: ");
+        sb.append(assigned);
+        sb.append("\ntodoItem: ");
+        sb.append(todoItem.getTitle());
+        if(assignee != null){
+            sb.append("\nassignee: ");
+            sb.append(assignee.getFirstName());
+            sb.append(" ");
+            sb.append(assignee.getLastName());
         }
+        return sb.toString();
     }
 
     public int getId() {
@@ -47,7 +61,7 @@ public class TodoItemTask {
     }
 
     public void setTodoItem(TodoItem todoItem) {
-        this.todoItem = todoItem;
+        this.todoItem = Objects.requireNonNull(todoItem, "TodoItem cant be null.");
     }
 
     public void setAssignee(Person assignee) {
