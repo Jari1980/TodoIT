@@ -10,10 +10,12 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 
 class PersonTest {
 
-    //Testing constructurs
+    //Testing constructur
     @Test
     void createPersonNonNullTest(){
         Person person = new Person("Jari", "Testar", "test@test");
+        int constructorIdTest = person.getId();
+        assertEquals(person.getSummary(), "id: " + constructorIdTest + "\nname: Jari Testar" + "\nemail: test@test");
     }
     @Test
     void createPersonNullFirstName(){
