@@ -8,7 +8,7 @@ public class Main {
 
 
         //Testing - Seems to work, cant set fields to null without error and message
-        Person test = new Person("Jari", "Testar", "epost");
+        //Person test = new Person("Jari", "Testar", "epost");
         /*test.getSummary();
         Person test2 = new Person("Test", "igen då", "mmm");
         test2.setEmail("kk");
@@ -38,6 +38,7 @@ public class Main {
         task2.getSummary(); //assigned true with assignee
         */
         Person person = new Person("Jari", "Testar", "test@test");
-        System.out.println(person.getSummary());
+        TodoItem todoItem = new TodoItem("Todo", "Do this and that", LocalDate.now().plusDays(1), false, person);
+        System.out.println(todoItem.getSummary());
     }
 }

@@ -24,9 +24,25 @@ public class TodoItem {
         this.id = counter++;
     }
 
-    public void getSummary(){
-        System.out.println("id: " + id + "\ntitle: " + title + "\ndecription: " + taskDescription + "\ndeadline: " + deadline +
-                "\ndone: " + done + "\ncreator: " + creator.getFirstName() + " " + creator.getLastName());
+    public String getSummary(){
+        //System.out.println("id: " + id + "\ntitle: " + title + "\ndecription: " + taskDescription + "\ndeadline: " + deadline +
+         //       "\ndone: " + done + "\ncreator: " + creator.getFirstName() + " " + creator.getLastName());
+        StringBuilder sb = new StringBuilder();
+        sb.append("id: ");
+        sb.append(id);
+        sb.append("\ntitle: ");
+        sb.append(title);
+        sb.append("\ndescription: ");
+        sb.append(taskDescription);
+        sb.append("\ndeadline: ");
+        sb.append(deadline);
+        sb.append("\ndone: ");
+        sb.append(done);
+        sb.append("\ncreator: ");
+        sb.append(creator.getFirstName());
+        sb.append(" ");
+        sb.append(creator.getLastName());
+        return sb.toString();
     }
 
     public boolean isOverdue(){
