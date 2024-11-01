@@ -15,7 +15,7 @@ public class TodoItemTest {
     @Test
     void todoItemAllGoodTest(){
         TodoItem todoItem = new TodoItem("Todo", "Do this and that", LocalDate.now().plusDays(1), false, person);
-        String todoItemSummary = todoItem.getSummary();
+        String todoItemSummary = todoItem.toString();
         LocalDate deadline = LocalDate.now().plusDays(1);
         int actualId = todoItem.getId();
         assertEquals(todoItemSummary, "id: " + actualId + "\ntitle: Todo\ndescription: Do this and that\ndeadline: " +

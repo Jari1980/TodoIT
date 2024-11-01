@@ -15,7 +15,7 @@ class PersonTest {
     void createPersonNonNullTest(){
         Person person = new Person("Jari", "Testar", "test@test");
         int constructorIdTest = person.getId();
-        assertEquals(person.getSummary(), "id: " + constructorIdTest + "\nname: Jari Testar" + "\nemail: test@test");
+        assertEquals(person.toString(), "id: " + constructorIdTest + "\nname: Jari Testar" + "\nemail: test@test");
     }
     @Test
     void createPersonNullFirstName(){
@@ -85,13 +85,16 @@ class PersonTest {
         assertEquals(personSetGet.getEmail(), "test@test");
     }
 
+    /*
     //Testing method
     @Test
     void getSummary(){
         Person personSummary = new Person("Jari", "Testar", "test@test");
-        String testSummary = personSummary.getSummary();
+        String testSummary = personSummary.toString();
         int personId = personSummary.getId();
         String expectedSummary = "id: " + personId + "\nname: Jari Testar" + "\nemail: test@test";
         assertEquals(testSummary,expectedSummary);
     }
+
+     */
 }

@@ -15,7 +15,7 @@ public class TodoItemTaskTest {
     void todoItemTask2ParamOk(){
         TodoItemTask todoItemTask = new TodoItemTask(todoItem, person);
         int todoItemTaskId = todoItemTask.getId(); //Get Id, assigned and getsummary is tested here aswell
-        assertEquals(todoItemTask.getSummary(), "id: " + todoItemTaskId + "\nassigned: true\ntodoItem: Todo\nassignee: Jari Testar");
+        assertEquals(todoItemTask.toString(), "id: " + todoItemTaskId + "\nassigned: true\ntodoItem: Todo\nassignee: Jari Testar");
     }
     @Test
     void todoItemTask2ParamNullTodoItem(){
@@ -27,7 +27,7 @@ public class TodoItemTaskTest {
     void todoItemTask1ParamOk(){
         TodoItemTask todoItemTask = new TodoItemTask(todoItem);
         int todoItemTaskId = todoItemTask.getId(); //Get Id, assigned and getsummary is tested here aswell
-        assertEquals(todoItemTask.getSummary(), "id: " + todoItemTaskId + "\nassigned: false\ntodoItem: Todo");
+        assertEquals(todoItemTask.toString(), "id: " + todoItemTaskId + "\nassigned: false\ntodoItem: Todo");
     }
     @Test
     void todoItemTask1ParamNull(){
@@ -45,7 +45,7 @@ public class TodoItemTaskTest {
     @Test
     void setGetTodoItemTest(){
         todoItemTaskGetSet.setTodoItem(todoItemGetSet);
-        assertEquals(todoItemTaskGetSet.getSummary(), "id: 1\nassigned: true\ntodoItem: Todo2\nassignee: Jari Testar");
+        assertEquals(todoItemTaskGetSet.toString(), "id: 1\nassigned: true\ntodoItem: Todo2\nassignee: Jari Testar");
     }
     @Test
     void setTodoItemNullTest(){
