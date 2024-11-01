@@ -24,7 +24,8 @@ public class TodoItem {
         this.id = counter++;
     }
 
-    public String getSummary(){
+    @Override
+    public String toString(){
         //System.out.println("id: " + id + "\ntitle: " + title + "\ndecription: " + taskDescription + "\ndeadline: " + deadline +
          //       "\ndone: " + done + "\ncreator: " + creator.getFirstName() + " " + creator.getLastName());
         StringBuilder sb = new StringBuilder();
@@ -38,10 +39,10 @@ public class TodoItem {
         sb.append(deadline);
         sb.append("\ndone: ");
         sb.append(done);
-        sb.append("\ncreator: ");
+        /*sb.append("\ncreator: ");
         sb.append(creator.getFirstName());
         sb.append(" ");
-        sb.append(creator.getLastName());
+        sb.append(creator.getLastName());*/
         return sb.toString();
     }
 
@@ -99,5 +100,18 @@ public class TodoItem {
 
     public Person getCreator() {
         return creator;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TodoItem todoItem = (TodoItem) o;
+        return id == todoItem.id && done == todoItem.done && Objects.equals(title, todoItem.title) && Objects.equals(taskDescription, todoItem.taskDescription) && Objects.equals(deadline, todoItem.deadline);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, title, taskDescription, deadline, done);
     }
 }

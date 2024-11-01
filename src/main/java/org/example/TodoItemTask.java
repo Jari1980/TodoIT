@@ -23,7 +23,8 @@ public class TodoItemTask {
         this.id = counter++;
     }
 
-    public String getSummary(){
+    @Override
+    public String toString(){
         //System.out.println("id: " + id + "\nassigned: " + assigned + "\ntodoItem: " + todoItem.getTitle());
         //if (assignee != null){
         //   System.out.println("assignee: " + assignee.getFirstName() + " " + assignee.getLastName());
@@ -35,12 +36,12 @@ public class TodoItemTask {
         sb.append(assigned);
         sb.append("\ntodoItem: ");
         sb.append(todoItem.getTitle());
-        if(assignee != null){
+        /*if(assignee != null){
             sb.append("\nassignee: ");
             sb.append(assignee.getFirstName());
             sb.append(" ");
             sb.append(assignee.getLastName());
-        }
+        }*/
         return sb.toString();
     }
 
@@ -70,5 +71,18 @@ public class TodoItemTask {
         }
         this.assignee = assignee;
         this.assigned = true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        TodoItemTask that = (TodoItemTask) o;
+        return id == that.id && assigned == that.assigned && Objects.equals(todoItem, that.todoItem);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, assigned, todoItem);
     }
 }
