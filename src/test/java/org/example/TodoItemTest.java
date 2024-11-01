@@ -19,7 +19,7 @@ public class TodoItemTest {
         LocalDate deadline = LocalDate.now().plusDays(1);
         int actualId = todoItem.getId();
         assertEquals(todoItemSummary, "id: " + actualId + "\ntitle: Todo\ndescription: Do this and that\ndeadline: " +
-                deadline + "\ndone: false\ncreator: Jari Testar");
+                deadline + "\ndone: false");
     }
     @Test
     void todoItemTitleNull(){
