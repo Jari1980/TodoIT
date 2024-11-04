@@ -57,4 +57,54 @@ public class AppUserTest {
         AppUser user2 = new AppUser("Jari", "12345", AppRole.ROLE_APP_USER);
         assertNotEquals(user1, user2);
     }
+
+    //Testing ok, null and empty setters
+    AppUser user = new AppUser("Jari", "12345", AppRole.ROLE_APP_ADMIN);
+    @Test
+    void setUsernameOk(){
+        user.setUsername("Jari Testar");
+        assertEquals(user.getUsername(), "Jari Testar");
+    }
+    @Test
+    void setUsernameNull(){
+        Assertions.assertThrowsExactly(NullPointerException.class, () -> {
+            user.setUsername(null);
+        });
+    }
+    @Test
+    void setUsernameEmpty(){
+        Assertions.assertThrowsExactly(RuntimeException.class, () -> {
+            user.setUsername("");
+        });
+    }
+
+    @Test
+    void setPasswordOk(){
+        user.setPassword("11111");
+        assertEquals(user.getPassword(), "11111");
+    }
+    @Test
+    void setPasswordNull(){
+        Assertions.assertThrowsExactly(NullPointerException.class, () -> {
+            user.setPassword(null);
+        });
+    }
+    @Test
+    void setPasswordEmpty(){
+        Assertions.assertThrowsExactly(RuntimeException.class, () -> {
+            user.setPassword("");
+        });
+    }
+
+    @Test
+    void setRoleOk(){
+        user.setRole(AppRole.ROLE_APP_USER);
+        assertEquals(user.getRole(), AppRole.ROLE_APP_USER);
+    }
+    @Test
+    void setRoleNull(){
+        Assertions.assertThrowsExactly(NullPointerException.class, () -> {
+            user.setRole(null);
+        });
+    }
 }
