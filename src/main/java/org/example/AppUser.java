@@ -28,13 +28,15 @@ public class AppUser {
     }
 
     public void setUsername(String username) {
-        this.username = username;
+        if(username.trim().isEmpty()) throw new RuntimeException("Username cant be empty.");
+        this.username = Objects.requireNonNull(username, "No null username!");
     }
     public void setPassword(String password) {
-        this.password = password;
+        if(password.trim().isEmpty()) throw new RuntimeException("Password cant be empty.");
+        this.password = Objects.requireNonNull(password, "No null password!");
     }
     public void setRole(AppRole role) {
-        this.role = role;
+        this.role = Objects.requireNonNull(role, "No null role!");
     }
 
     @Override
