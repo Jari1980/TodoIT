@@ -1,5 +1,7 @@
 package org.example;
 
+import org.example.Models.AppRole;
+import org.example.Models.AppUser;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

@@ -1,10 +1,12 @@
-package org.example;
+package org.example.Models;
+
+import org.example.sequencers.TodoItemIdSequencer;
 
 import java.time.LocalDate;
 import java.util.Objects;
 
 public class TodoItem {
-    private static int counter = 1;
+    //private static int counter = 1;
     private int id;
     private String title;
     private String taskDescription;
@@ -21,7 +23,8 @@ public class TodoItem {
         this.deadline = Objects.requireNonNull(deadline, "Deadline cant be null.");
         this.done = done;
         this.creator = creator;
-        this.id = counter++;
+        //this.id = counter++;
+        this.id = TodoItemIdSequencer.nextId();
     }
 
     @Override

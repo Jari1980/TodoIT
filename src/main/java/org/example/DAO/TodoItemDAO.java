@@ -1,4 +1,7 @@
-package org.example;
+package org.example.DAO;
+
+import org.example.Models.Person;
+import org.example.Models.TodoItem;
 
 import java.time.LocalDate;
 import java.util.Collection;

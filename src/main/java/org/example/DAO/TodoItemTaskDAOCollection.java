@@ -1,12 +1,10 @@
 package org.example.DAO;
 
-import org.example.TodoItem;
-import org.example.TodoItemDAOCollection;
-import org.example.TodoItemTask;
+import org.example.Models.TodoItem;
+import org.example.Models.TodoItemTask;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
 public class TodoItemTaskDAOCollection implements TodoItemTaskDAO {
     private ArrayList<TodoItemTask> todoItemTaskList = new ArrayList<>();

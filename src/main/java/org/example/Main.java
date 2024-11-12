@@ -1,10 +1,13 @@
 package org.example;
 
 
-import org.example.DAO.AppUserDAOCollection;
-import org.example.DAO.PersonDAOCollection;
-import org.example.DAO.TodoItemTaskDAO;
-import org.example.DAO.TodoItemTaskDAOCollection;
+import org.example.DAO.*;
+import org.example.Models.AppRole;
+import org.example.Models.AppUser;
+import org.example.Models.Person;
+import org.example.sequencers.PersonIdSequencer;
+import org.example.sequencers.TodoItemIdSequencer;
+import org.example.sequencers.TodoItemTaskIdSequencer;
 
 import java.time.LocalDate;
 
@@ -61,5 +64,10 @@ public class Main {
         System.out.println(todoItemTaskAdmin.findAll());
         System.out.println("----------------");
         System.out.println(todoItemTaskAdmin.findByAssignedStatus(true));
+
+        System.out.println("----------------");
+        System.out.println("PersonIdSequencer current id: " + PersonIdSequencer.getCurrentId());
+        System.out.println("TodoItemIdSequncer current id: " + TodoItemIdSequencer.getCurrentId());
+        System.out.println("TodoItemTaskIdSequncer current id: " + TodoItemTaskIdSequencer.getCurrentId());
     }
 }
