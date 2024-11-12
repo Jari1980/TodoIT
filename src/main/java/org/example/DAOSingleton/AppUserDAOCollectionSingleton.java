@@ -1,13 +1,14 @@
 package org.example.DAOSingleton;
 
 import org.example.DAO.AppUserDAO;
+import org.example.DAOInterfacesWithGenerics.AppUserDAOGen;
 import org.example.Models.AppRole;
 import org.example.Models.AppUser;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public final class AppUserDAOCollectionSingleton implements AppUserDAO {
+public final class AppUserDAOCollectionSingleton implements AppUserDAOGen<AppUser> {
     private static AppUserDAOCollectionSingleton INSTANCE;
     private ArrayList<AppUser> appUserList = new ArrayList<>();
 

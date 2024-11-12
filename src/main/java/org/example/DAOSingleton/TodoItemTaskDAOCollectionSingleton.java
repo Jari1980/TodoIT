@@ -2,13 +2,14 @@ package org.example.DAOSingleton;
 
 import org.example.DAO.TodoItemTaskDAO;
 import org.example.DAO.TodoItemTaskDAOCollection;
+import org.example.DAOInterfacesWithGenerics.TodoItemTaskDAOGen;
 import org.example.Models.TodoItem;
 import org.example.Models.TodoItemTask;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public final class TodoItemTaskDAOCollectionSingleton implements TodoItemTaskDAO {
+public final class TodoItemTaskDAOCollectionSingleton implements TodoItemTaskDAOGen<TodoItemTask> {
     private static TodoItemTaskDAOCollectionSingleton INSTANCE;
     private ArrayList<TodoItemTask> todoItemTaskList = new ArrayList<>();
 

@@ -1,12 +1,13 @@
 package org.example.DAOSingleton;
 
 import org.example.DAO.PersonDAO;
+import org.example.DAOInterfacesWithGenerics.PersonDAOGen;
 import org.example.Models.Person;
 
 import java.util.ArrayList;
 import java.util.Collection;
 
-public final class PersonDAOCollectionSingleton implements PersonDAO {
+public final class PersonDAOCollectionSingleton implements PersonDAOGen<Person> {
     private static PersonDAOCollectionSingleton INSTANCE;
     private ArrayList<Person> personList = new ArrayList<>();
 
