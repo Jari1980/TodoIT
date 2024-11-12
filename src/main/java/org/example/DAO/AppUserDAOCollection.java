@@ -1,7 +1,7 @@
 package org.example.DAO;
 
-import org.example.AppRole;
-import org.example.AppUser;
+import org.example.Models.AppRole;
+import org.example.Models.AppUser;
 
 import java.util.ArrayList;
 import java.util.Collection;

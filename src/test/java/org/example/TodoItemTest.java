@@ -1,11 +1,11 @@
 package org.example;
 
+import org.example.Models.Person;
+import org.example.Models.TodoItem;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
-import java.util.Date;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

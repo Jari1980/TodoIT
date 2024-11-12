@@ -1,11 +1,13 @@
-package org.example;
+package org.example.DAO;
+
+import org.example.Models.Person;
+import org.example.Models.TodoItem;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
-public class TodoItemDAOCollection implements TodoItemDAO{
+public class TodoItemDAOCollection implements TodoItemDAO {
     private ArrayList<TodoItem> todoItemList = new ArrayList<>();
 
 

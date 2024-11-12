@@ -1,13 +1,15 @@
 
-package org.example;
+package org.example.Models;
 
 
 //import jakarta.validation.constraints.NotNull;
 
+import org.example.sequencers.PersonIdSequencer;
+
 import java.util.Objects;
 
 public class Person {
-    private static int counter = 1;
+    //private static int counter = 1;
     private int id;
     //@NotNull
     private String firstName;
@@ -21,7 +23,8 @@ public class Person {
         this.firstName = Objects.requireNonNull(firstName, "No null firstname!");
         this.lastName = Objects.requireNonNull(lastName, "No null lastname!");
         this.email = Objects.requireNonNull(email, "No null email!");
-        this.id = counter++;
+        //this.id = counter++;
+        this.id = PersonIdSequencer.nextId();
     }
 
     @Override

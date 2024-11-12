@@ -1,4 +1,4 @@
-package org.example;
+package org.example.Models;
 
 public enum AppRole {
     ROLE_APP_USER,

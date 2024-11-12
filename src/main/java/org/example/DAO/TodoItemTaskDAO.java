@@ -1,7 +1,7 @@
 package org.example.DAO;
 
-import org.example.TodoItem;
-import org.example.TodoItemTask;
+import org.example.Models.TodoItem;
+import org.example.Models.TodoItemTask;
 
 import java.util.Collection;
 

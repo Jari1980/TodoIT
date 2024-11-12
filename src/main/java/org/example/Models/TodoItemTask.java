@@ -1,9 +1,12 @@
-package org.example;
+package org.example.Models;
+
+import org.example.sequencers.TodoItemIdSequencer;
+import org.example.sequencers.TodoItemTaskIdSequencer;
 
 import java.util.Objects;
 
 public class TodoItemTask {
-    private static int counter = 1;
+    //private static int counter = 1;
     private int id;
     private boolean assigned;
     private TodoItem todoItem;
@@ -15,12 +18,15 @@ public class TodoItemTask {
         }
         this.todoItem = Objects.requireNonNull(todoItem, "TodoItem cant be null.");
         this.assignee = assignee;
-        this.id = counter++;
+        //this.id = counter++;
+        this.id = TodoItemIdSequencer.nextId();
     }
 
     public TodoItemTask(TodoItem todoItem) {
         this.todoItem = Objects.requireNonNull(todoItem, "TodoItem cant be null.");
-        this.id = counter++;
+        //this.id = counter++;
+        TodoItemTaskIdSequencer.nextId();
+        this.id = TodoItemTaskIdSequencer.getCurrentId();
     }
 
     @Override
