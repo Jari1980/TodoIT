@@ -1,4 +1,6 @@
-package org.example;
+package org.example.DAO;
+
+import org.example.Person;
 
 import java.util.Collection;
 
