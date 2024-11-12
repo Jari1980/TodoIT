@@ -73,5 +73,8 @@ public class Main {
         System.out.println("PersonIdSequencer current id: " + PersonIdSequencer.getCurrentId());
         System.out.println("TodoItemIdSequncer current id: " + TodoItemIdSequencer.getCurrentId());
         System.out.println("TodoItemTaskIdSequncer current id: " + TodoItemTaskIdSequencer.getCurrentId());
+        System.out.println("-----------------");
+
+        System.out.println(userAdmin.findAll());
     }
 }

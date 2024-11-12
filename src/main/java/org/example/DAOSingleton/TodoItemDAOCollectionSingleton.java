@@ -1,6 +1,7 @@
 package org.example.DAOSingleton;
 
 import org.example.DAO.TodoItemDAO;
+import org.example.DAOInterfacesWithGenerics.TodoItemDAOGen;
 import org.example.Models.Person;
 import org.example.Models.TodoItem;
 
@@ -8,7 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public final class TodoItemDAOCollectionSingleton implements TodoItemDAO {
+public final class TodoItemDAOCollectionSingleton implements TodoItemDAOGen<TodoItem> {
     private static TodoItemDAOCollectionSingleton INSTANCE;
     private ArrayList<TodoItem> todoItemList = new ArrayList<>();
 
