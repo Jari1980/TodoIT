@@ -2,6 +2,10 @@ package org.example;
 
 
 import org.example.DAO.*;
+import org.example.DAOSingleton.AppUserDAOCollectionSingleton;
+import org.example.DAOSingleton.PersonDAOCollectionSingleton;
+import org.example.DAOSingleton.TodoItemDAOCollectionSingleton;
+import org.example.DAOSingleton.TodoItemTaskDAOCollectionSingleton;
 import org.example.Models.AppRole;
 import org.example.Models.AppUser;
 import org.example.Models.Person;
@@ -14,7 +18,7 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
-        AppUserDAOCollection userAdmin = new AppUserDAOCollection();
+        AppUserDAOCollectionSingleton userAdmin = new AppUserDAOCollectionSingleton();
         userAdmin.persist("JariTestar1", "12345", AppRole.ROLE_APP_ADMIN);
         userAdmin.persist("JariTestar2", "54321", AppRole.ROLE_APP_ADMIN);
         var list = userAdmin.findAll();
@@ -23,7 +27,7 @@ public class Main {
         }
         System.out.println("-----------------");
 
-        PersonDAOCollection personAdmin = new PersonDAOCollection();
+        PersonDAOCollectionSingleton personAdmin = new PersonDAOCollectionSingleton();
         personAdmin.persist("Jari", "Test1", "epost");
         personAdmin.persist("Jari", "Test2", "epost");
         personAdmin.persist("Jari", "Test3", "epost");
@@ -38,7 +42,7 @@ public class Main {
         }
         System.out.println("--------------------------");
 
-        TodoItemDAOCollection todoAdmin = new TodoItemDAOCollection();
+        TodoItemDAOCollectionSingleton todoAdmin = new TodoItemDAOCollectionSingleton();
         todoAdmin.persist("Test1", "Description1", LocalDate.of(2024, 11, 20), true, personAdmin.findById(1));
         todoAdmin.persist("Test2", "Description2", LocalDate.of(2024, 11, 1), true, personAdmin.findById(1));
         todoAdmin.persist("Test3", "Description3", LocalDate.of(2024, 11, 25), false, personAdmin.findById(2));
@@ -53,7 +57,7 @@ public class Main {
         System.out.println(todoAdmin.findByDeadlineBefore(LocalDate.of(2024, 11, 25)));
         System.out.println("---------------------------------------");
 
-        TodoItemTaskDAOCollection todoItemTaskAdmin = new TodoItemTaskDAOCollection();
+        TodoItemTaskDAOCollectionSingleton todoItemTaskAdmin = new TodoItemTaskDAOCollectionSingleton();
         todoItemTaskAdmin.persist(todoAdmin.findById(1));
         todoItemTaskAdmin.persist(todoAdmin.findById(2));
         todoItemTaskAdmin.persist(todoAdmin.findById(3));
