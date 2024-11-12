@@ -1,10 +1,11 @@
-package org.example;
+package org.example.DAO;
+
+import org.example.Person;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
-public class PersonDAOCollection implements  PersonDAO{
+public class PersonDAOCollection implements PersonDAO {
     private ArrayList<Person> personList = new ArrayList<>();
 
     @Override

@@ -1,4 +1,7 @@
-package org.example;
+package org.example.DAO;
+
+import org.example.AppRole;
+import org.example.AppUser;
 
 import java.util.Collection;
 

@@ -1,10 +1,12 @@
-package org.example;
+package org.example.DAO;
+
+import org.example.AppRole;
+import org.example.AppUser;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.List;
 
-public class AppUserDAOCollection implements  AppUserDAO{
+public class AppUserDAOCollection implements AppUserDAO {
     private ArrayList<AppUser> appUserList = new ArrayList<>();
 
     @Override
