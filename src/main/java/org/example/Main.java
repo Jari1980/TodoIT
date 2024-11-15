@@ -6,6 +6,7 @@ import org.example.DAOSingleton.AppUserDAOCollectionSingleton;
 import org.example.DAOSingleton.PersonDAOCollectionSingleton;
 import org.example.DAOSingleton.TodoItemDAOCollectionSingleton;
 import org.example.DAOSingleton.TodoItemTaskDAOCollectionSingleton;
+import org.example.DAOStream.AppUserDAOCollectionStream;
 import org.example.Models.AppRole;
 import org.example.Models.AppUser;
 import org.example.Models.Person;
@@ -18,7 +19,7 @@ import java.time.LocalDate;
 public class Main {
     public static void main(String[] args) {
 
-        AppUserDAOCollectionSingleton userAdmin = new AppUserDAOCollectionSingleton();
+        AppUserDAOCollectionStream userAdmin = new AppUserDAOCollectionStream();
         userAdmin.persist("JariTestar1", "12345", AppRole.ROLE_APP_ADMIN);
         userAdmin.persist("JariTestar2", "54321", AppRole.ROLE_APP_ADMIN);
         var list = userAdmin.findAll();
@@ -71,10 +72,14 @@ public class Main {
 
         System.out.println("----------------");
         System.out.println("PersonIdSequencer current id: " + PersonIdSequencer.getCurrentId());
-        System.out.println("TodoItemIdSequncer current id: " + TodoItemIdSequencer.getCurrentId());
-        System.out.println("TodoItemTaskIdSequncer current id: " + TodoItemTaskIdSequencer.getCurrentId());
+        System.out.println("TodoItemIdSequencer current id: " + TodoItemIdSequencer.getCurrentId());
+        System.out.println("TodoItemTaskIdSequencer current id: " + TodoItemTaskIdSequencer.getCurrentId());
         System.out.println("-----------------");
 
+        System.out.println(userAdmin.findAll());
+        System.out.println("------------");
+        System.out.println(userAdmin.findByUsername("JariTestar2"));
+        userAdmin.remove("JariTestar2");
         System.out.println(userAdmin.findAll());
     }
 }
