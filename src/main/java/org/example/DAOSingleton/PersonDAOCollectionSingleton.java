@@ -3,6 +3,8 @@ package org.example.DAOSingleton;
 import org.example.DAO.PersonDAO;
 import org.example.DAOInterfacesWithGenerics.PersonDAOGen;
 import org.example.Models.Person;
+import org.example.sequencers.PersonIdSequencer;
+import org.example.sequencers.TodoItemIdSequencer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -20,7 +22,8 @@ public final class PersonDAOCollectionSingleton implements PersonDAOGen<Person> 
 
     @Override
     public Person persist(String firstName, String lastName, String email) {
-        personList.add(new Person(firstName, lastName, email));
+        int id = PersonIdSequencer.nextId();
+        personList.add(new Person(firstName, lastName, email, id));
         return personList.getLast();
     }
 

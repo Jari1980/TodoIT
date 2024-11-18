@@ -12,21 +12,21 @@ public class TodoItemTask {
     private TodoItem todoItem;
     private Person assignee;
 
-    public TodoItemTask(TodoItem todoItem, Person assignee) {
+    public TodoItemTask(TodoItem todoItem, Person assignee, int id) {
         if (assignee != null){
             this.assigned = true;
         }
         this.todoItem = Objects.requireNonNull(todoItem, "TodoItem cant be null.");
         this.assignee = assignee;
-        //this.id = counter++;
-        this.id = TodoItemIdSequencer.nextId();
+        this.id = id;
+        //this.id = TodoItemIdSequencer.nextId();
     }
 
-    public TodoItemTask(TodoItem todoItem) {
+    public TodoItemTask(TodoItem todoItem, int id) {
         this.todoItem = Objects.requireNonNull(todoItem, "TodoItem cant be null.");
-        //this.id = counter++;
-        TodoItemTaskIdSequencer.nextId();
-        this.id = TodoItemTaskIdSequencer.getCurrentId();
+        this.id = id;
+        //TodoItemTaskIdSequencer.nextId();
+        //this.id = TodoItemTaskIdSequencer.getCurrentId();
     }
 
     @Override

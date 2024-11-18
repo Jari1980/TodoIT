@@ -2,6 +2,7 @@ package org.example.DAO;
 
 import org.example.Models.TodoItem;
 import org.example.Models.TodoItemTask;
+import org.example.sequencers.TodoItemIdSequencer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -12,7 +13,8 @@ public class TodoItemTaskDAOCollection implements TodoItemTaskDAO {
 
     @Override
     public TodoItemTask persist(TodoItem todoItem) {
-        todoItemTaskList.add(new TodoItemTask(todoItem));
+        int id = TodoItemIdSequencer.nextId();
+        todoItemTaskList.add(new TodoItemTask(todoItem, id));
         return todoItemTaskList.getLast();
     }
 
@@ -46,7 +48,7 @@ public class TodoItemTaskDAOCollection implements TodoItemTaskDAO {
     public Collection<TodoItemTask> findByPersonId(int personId) {
         ArrayList<TodoItemTask> temp = new ArrayList<>();
         for(TodoItemTask item : todoItemTaskList){
-            if(item.getId() == personId){
+            if(item.getAssignee().getId() == personId){
                 temp.add(item);
             }
         }
