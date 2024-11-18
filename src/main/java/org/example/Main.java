@@ -58,17 +58,6 @@ public class Main {
         System.out.println(todoAdmin.findByDeadlineBefore(LocalDate.of(2024, 11, 25)));
         System.out.println("---------------------------------------");
 
-        TodoItemTaskDAOCollectionSingleton todoItemTaskAdmin = new TodoItemTaskDAOCollectionSingleton();
-        todoItemTaskAdmin.persist(todoAdmin.findById(1));
-        todoItemTaskAdmin.persist(todoAdmin.findById(2));
-        todoItemTaskAdmin.persist(todoAdmin.findById(3));
-        todoItemTaskAdmin.persist(todoAdmin.findById(4));
-        System.out.println(todoItemTaskAdmin.findAll());
-        todoItemTaskAdmin.findById(1).setAssignee(personAdmin.findById(1));
-        System.out.println("----------------");
-        System.out.println(todoItemTaskAdmin.findAll());
-        System.out.println("----------------");
-        System.out.println(todoItemTaskAdmin.findByAssignedStatus(true));
 
         System.out.println("----------------");
         System.out.println("PersonIdSequencer current id: " + PersonIdSequencer.getCurrentId());

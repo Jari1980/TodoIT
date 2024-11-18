@@ -1,6 +1,7 @@
 package org.example.DAO;
 
 import org.example.Models.Person;
+import org.example.sequencers.PersonIdSequencer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -10,7 +11,8 @@ public class PersonDAOCollection implements PersonDAO {
 
     @Override
     public Person persist(String firstName, String lastName, String email) {
-        personList.add(new Person(firstName, lastName, email));
+        int id = PersonIdSequencer.nextId();
+        personList.add(new Person(firstName, lastName, email, id));
         return personList.getLast();
     }
 

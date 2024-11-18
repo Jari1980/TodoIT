@@ -4,6 +4,7 @@ import org.example.DAO.TodoItemDAO;
 import org.example.DAOInterfacesWithGenerics.TodoItemDAOGen;
 import org.example.Models.Person;
 import org.example.Models.TodoItem;
+import org.example.sequencers.TodoItemIdSequencer;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -22,7 +23,8 @@ public final class TodoItemDAOCollectionSingleton implements TodoItemDAOGen<Todo
 
     @Override
     public TodoItem persist(String title, String taskDescription, LocalDate deadline, boolean done, Person creator) {
-        todoItemList.add(new TodoItem(title, taskDescription, deadline, done, creator));
+        int id = TodoItemIdSequencer.nextId();
+        todoItemList.add(new TodoItem(title, taskDescription, deadline, done, creator, id));
         return todoItemList.getLast();
     }
 

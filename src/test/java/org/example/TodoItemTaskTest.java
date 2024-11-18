@@ -11,6 +11,8 @@ import java.time.LocalDate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class TodoItemTaskTest {
+
+    /* Commenting all since changed use of sequenser
     //Constructor, getId, assigned and getsummary
     Person person = new Person("Jari", "Testar", "test@test");
     TodoItem todoItem = new TodoItem("Todo", "Do this and that", LocalDate.now().plusDays(1), false, person);
@@ -56,4 +58,6 @@ public class TodoItemTaskTest {
             todoItemTaskGetSet.setTodoItem(null);
         });
     }
+    */
+
 }

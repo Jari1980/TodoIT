@@ -5,6 +5,7 @@ import org.example.DAO.TodoItemTaskDAOCollection;
 import org.example.DAOInterfacesWithGenerics.TodoItemTaskDAOGen;
 import org.example.Models.TodoItem;
 import org.example.Models.TodoItemTask;
+import org.example.sequencers.TodoItemIdSequencer;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,7 +23,8 @@ public final class TodoItemTaskDAOCollectionSingleton implements TodoItemTaskDAO
 
     @Override
     public TodoItemTask persist(TodoItem todoItem) {
-        todoItemTaskList.add(new TodoItemTask(todoItem));
+        int id = TodoItemIdSequencer.nextId();
+        todoItemTaskList.add(new TodoItemTask(todoItem, id));
         return todoItemTaskList.getLast();
     }
 

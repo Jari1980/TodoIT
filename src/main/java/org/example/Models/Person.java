@@ -19,13 +19,15 @@ public class Person {
     private String email;
     private String credentials;
 
-    public Person(String firstName, String lastName, final String email){
+    public Person(String firstName, String lastName, final String email, int id){
         this.firstName = Objects.requireNonNull(firstName, "No null firstname!");
         this.lastName = Objects.requireNonNull(lastName, "No null lastname!");
         this.email = Objects.requireNonNull(email, "No null email!");
-        //this.id = counter++;
-        this.id = PersonIdSequencer.nextId();
+        this.id = id;
+        //this.id = PersonIdSequencer.nextId();
     }
+
+
 
     @Override
     public String toString(){

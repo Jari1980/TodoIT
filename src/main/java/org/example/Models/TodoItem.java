@@ -14,7 +14,7 @@ public class TodoItem {
     private boolean done;
     private Person creator;
 
-    public TodoItem(String title, String taskDescription, LocalDate deadline, boolean done, Person creator) {
+    public TodoItem(String title, String taskDescription, LocalDate deadline, boolean done, Person creator, int id) {
         if (title.isEmpty()) {
             throw new RuntimeException("Title cant be empty.");
         }
@@ -23,8 +23,8 @@ public class TodoItem {
         this.deadline = Objects.requireNonNull(deadline, "Deadline cant be null.");
         this.done = done;
         this.creator = creator;
-        //this.id = counter++;
-        this.id = TodoItemIdSequencer.nextId();
+        //this.id = id;
+        this.id = id;
     }
 
     @Override
