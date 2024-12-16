@@ -14,11 +14,37 @@ import org.example.sequencers.PersonIdSequencer;
 import org.example.sequencers.TodoItemIdSequencer;
 import org.example.sequencers.TodoItemTaskIdSequencer;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
 
+
+        try{
+            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercises", "root", "****");
+            Statement statement = connection.createStatement();
+
+            ResultSet rs = statement.executeQuery("SELECT * FROM CUSTOMER");
+
+            while(rs.next()){
+                System.out.println("Id: " + rs.getString("customer_id"));
+                System.out.println("Name: " + rs.getString("cust_name"));
+                System.out.println("City: " + rs.getString("city"));
+            }
+        }
+
+
+        catch (Exception e){
+            System.out.println("Something wrong");
+        }
+
+
+
+        /*
         AppUserDAOCollectionStream userAdmin = new AppUserDAOCollectionStream();
         userAdmin.persist("JariTestar1", "12345", AppRole.ROLE_APP_ADMIN);
         userAdmin.persist("JariTestar2", "54321", AppRole.ROLE_APP_ADMIN);
@@ -70,5 +96,6 @@ public class Main {
         System.out.println(userAdmin.findByUsername("JariTestar2"));
         userAdmin.remove("JariTestar2");
         System.out.println(userAdmin.findAll());
+        */
     }
 }
