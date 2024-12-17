@@ -14,33 +14,32 @@ import org.example.sequencers.PersonIdSequencer;
 import org.example.sequencers.TodoItemIdSequencer;
 import org.example.sequencers.TodoItemTaskIdSequencer;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.time.LocalDate;
+
+import static org.example.db.MySQLConnection.getConnection;
 
 public class Main {
     public static void main(String[] args) {
 
 
-        try{
-            Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/exercises", "root", "****");
-            Statement statement = connection.createStatement();
-
-            ResultSet rs = statement.executeQuery("SELECT * FROM CUSTOMER");
-
-            while(rs.next()){
-                System.out.println("Id: " + rs.getString("customer_id"));
-                System.out.println("Name: " + rs.getString("cust_name"));
-                System.out.println("City: " + rs.getString("city"));
+        String sql = "SELECT * FROM CUSTOMER";
+        try(
+                Connection connection1 = getConnection();
+                Statement statement = connection1.createStatement();
+                ResultSet resultSet = statement.executeQuery(sql);
+                ){
+            while(resultSet.next()){
+                System.out.println("Id: " + resultSet.getString("customer_id"));
+                System.out.println("Name: " + resultSet.getString("cust_name"));
+                System.out.println("City: " + resultSet.getString("city"));
             }
         }
-
-
-        catch (Exception e){
-            System.out.println("Something wrong");
+        catch(SQLException e){
+            e.getStackTrace();
         }
+
+
 
 
 
