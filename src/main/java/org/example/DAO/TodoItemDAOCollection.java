@@ -7,17 +7,20 @@ import org.example.sequencers.TodoItemIdSequencer;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class TodoItemDAOCollection implements TodoItemDAO {
     private ArrayList<Todo_item> todoItemList = new ArrayList<>();
 
 
+    /*
     @Override
     public Todo_item persist(String title, String taskDescription, LocalDate deadline, boolean done, Person creator) {
         int id = TodoItemIdSequencer.nextId();
         todoItemList.add(new Todo_item(title, taskDescription, deadline, done, creator, id));
         return todoItemList.getLast();
     }
+     */
 
     @Override
     public Todo_item findById(int id) {
@@ -30,12 +33,17 @@ public class TodoItemDAOCollection implements TodoItemDAO {
     }
 
     @Override
+    public Todo_item create(Todo_item todo_item) {
+        return null;
+    }
+
+    @Override
     public Collection<Todo_item> findAll() {
         return todoItemList;
     }
 
     @Override
-    public Collection<Todo_item> findAllByStatus(boolean done) {
+    public Collection<Todo_item> findByDoneStatus(boolean done) {
         ArrayList<Todo_item> temp = new ArrayList<>();
         for(Todo_item item : todoItemList){
             if(item.isDone()){
@@ -45,6 +53,7 @@ public class TodoItemDAOCollection implements TodoItemDAO {
         return temp;
     }
 
+    /*
     @Override
     public Collection<Todo_item> findByTitleContains(String title) {
         ArrayList<Todo_item> temp = new ArrayList<>();
@@ -56,8 +65,10 @@ public class TodoItemDAOCollection implements TodoItemDAO {
         return temp;
     }
 
+     */
+
     @Override
-    public Collection<Todo_item> findByPersonId(int personId) {
+    public Collection<Todo_item> findByAssignee(int personId) {
         ArrayList<Todo_item> temp = new ArrayList<>();
         for(Todo_item item : todoItemList){
             if(item.getCreator().getId() == personId){
@@ -67,6 +78,22 @@ public class TodoItemDAOCollection implements TodoItemDAO {
         return temp;
     }
 
+    @Override
+    public Collection<Todo_item> findByAssignee(Person person) {
+        return List.of();
+    }
+
+    @Override
+    public Collection<Todo_item> findByUnassignedTodoItems() {
+        return List.of();
+    }
+
+    @Override
+    public Todo_item update(Todo_item todo_item) {
+        return null;
+    }
+
+    /*
     @Override
     public Collection<Todo_item> findByDeadlineBefore(LocalDate date) {
         ArrayList<Todo_item> temp = new ArrayList<>();
@@ -88,6 +115,7 @@ public class TodoItemDAOCollection implements TodoItemDAO {
         }
         return temp;
     }
+     */
 
     @Override
     public void remove(int id) {

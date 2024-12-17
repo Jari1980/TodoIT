@@ -5,16 +5,18 @@ import org.example.sequencers.PersonIdSequencer;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 public class PersonDAOCollection implements PersonDAO {
     private ArrayList<Person> personList = new ArrayList<>();
 
     @Override
-    public Person persist(String firstName, String lastName, String email) {
+    public Person create(String firstName, String lastName, String email) {
         int id = PersonIdSequencer.nextId();
         personList.add(new Person(firstName, lastName, email, id));
         return personList.getLast();
     }
+
 
     @Override
     public Person findById(int id) {
@@ -27,6 +29,12 @@ public class PersonDAOCollection implements PersonDAO {
     }
 
     @Override
+    public Collection<Person> findByName(String name) {
+        return List.of();
+    }
+
+    /*
+    @Override
     public Person findByEmail(String email) {
         for(Person person : personList){
             if(person.getEmail().equals(email)){
@@ -35,10 +43,16 @@ public class PersonDAOCollection implements PersonDAO {
         }
         return null;
     }
+    */
 
     @Override
     public Collection<Person> findAll() {
         return personList;
+    }
+
+    @Override
+    public Person update(Person person) {
+        return null;
     }
 
     @Override
