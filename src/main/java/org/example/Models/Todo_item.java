@@ -1,30 +1,28 @@
 package org.example.Models;
 
-import org.example.sequencers.TodoItemIdSequencer;
-
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class TodoItem {
+public class Todo_item {
     //private static int counter = 1;
-    private int id;
+    private int todo_id; //Refactored id -> todo_id
     private String title;
-    private String taskDescription;
+    private String description; //Refactored taskDescription -> description
     private LocalDate deadline;
     private boolean done;
     private Person creator;
 
-    public TodoItem(String title, String taskDescription, LocalDate deadline, boolean done, Person creator, int id) {
+    public Todo_item(String title, String taskDescription, LocalDate deadline, boolean done, Person creator, int id) {
         if (title.isEmpty()) {
             throw new RuntimeException("Title cant be empty.");
         }
         this.title = Objects.requireNonNull(title, "Title cant be null.");
-        this.taskDescription = taskDescription;
+        this.description = taskDescription;
         this.deadline = Objects.requireNonNull(deadline, "Deadline cant be null.");
         this.done = done;
         this.creator = creator;
         //this.id = id;
-        this.id = id;
+        this.todo_id = id;
     }
 
     @Override
@@ -33,11 +31,11 @@ public class TodoItem {
          //       "\ndone: " + done + "\ncreator: " + creator.getFirstName() + " " + creator.getLastName());
         StringBuilder sb = new StringBuilder();
         sb.append("id: ");
-        sb.append(id);
+        sb.append(todo_id);
         sb.append("\ntitle: ");
         sb.append(title);
         sb.append("\ndescription: ");
-        sb.append(taskDescription);
+        sb.append(description);
         sb.append("\ndeadline: ");
         sb.append(deadline);
         sb.append("\ndone: ");
@@ -66,7 +64,7 @@ public class TodoItem {
     }
 
     public void setTaskDescription(String taskDescription) {
-        this.taskDescription = taskDescription;
+        this.description = taskDescription;
     }
 
     public void setDeadline(LocalDate deadline) {
@@ -82,7 +80,7 @@ public class TodoItem {
     }
 
     public int getId() {
-        return id;
+        return todo_id;
     }
 
     public String getTitle() {
@@ -90,7 +88,7 @@ public class TodoItem {
     }
 
     public String getTaskDescription() {
-        return taskDescription;
+        return description;
     }
 
     public LocalDate getDeadline() {
@@ -109,12 +107,12 @@ public class TodoItem {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        TodoItem todoItem = (TodoItem) o;
-        return id == todoItem.id && done == todoItem.done && Objects.equals(title, todoItem.title) && Objects.equals(taskDescription, todoItem.taskDescription) && Objects.equals(deadline, todoItem.deadline);
+        Todo_item todoItem = (Todo_item) o;
+        return todo_id == todoItem.todo_id && done == todoItem.done && Objects.equals(title, todoItem.title) && Objects.equals(description, todoItem.description) && Objects.equals(deadline, todoItem.deadline);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, taskDescription, deadline, done);
+        return Objects.hash(todo_id, title, description, deadline, done);
     }
 }

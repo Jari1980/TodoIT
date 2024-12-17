@@ -1,7 +1,7 @@
 package org.example;
 
 import org.example.Models.Person;
-import org.example.Models.TodoItem;
+import org.example.Models.Todo_item;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
@@ -14,7 +14,7 @@ public class TodoItemTest {
     //Testing constructor
     @Test
     void todoItemAllGoodTest(){
-        TodoItem todoItem = new TodoItem("Todo", "Do this and that", LocalDate.now().plusDays(1), false, person);
+        Todo_item todoItem = new Todo_item("Todo", "Do this and that", LocalDate.now().plusDays(1), false, person);
         String todoItemSummary = todoItem.toString();
         LocalDate deadline = LocalDate.now().plusDays(1);
         int actualId = todoItem.getId();
@@ -24,23 +24,23 @@ public class TodoItemTest {
     @Test
     void todoItemTitleNull(){
         Assertions.assertThrowsExactly(NullPointerException.class, () -> {
-            TodoItem todoItem = new TodoItem(null, "Do this and that", LocalDate.now().plusDays(1), false, person);
+            Todo_item todoItem = new Todo_item(null, "Do this and that", LocalDate.now().plusDays(1), false, person);
         });
     }
     @Test
     void todoItemTitleEmpty(){
         Assertions.assertThrowsExactly(RuntimeException.class, () -> {
-            TodoItem todoItem = new TodoItem("", "Do this and that", LocalDate.now().plusDays(1), false, person);
+            Todo_item todoItem = new Todo_item("", "Do this and that", LocalDate.now().plusDays(1), false, person);
         });
     }
     @Test
     void todoItemDeadlineNull(){
         Assertions.assertThrowsExactly(NullPointerException.class, () -> {
-            TodoItem todoItem = new TodoItem("Todo", "Do this and that", null, false, person);
+            Todo_item todoItem = new Todo_item("Todo", "Do this and that", null, false, person);
         });
     }
     //Teting getters and setter
-    TodoItem todoItemGetSet = new TodoItem("Todo", "Do this and that", LocalDate.now().minusDays(1), false, person);
+    Todo_item todoItemGetSet = new Todo_item("Todo", "Do this and that", LocalDate.now().minusDays(1), false, person);
     @Test
     void setTitleOk() {
         todoItemGetSet.setTitle("New");
@@ -73,7 +73,7 @@ public class TodoItemTest {
     //Testing Overdue
     @Test
     void TodoItemDeadlineOverdue(){
-        TodoItem todoItem = new TodoItem("Todo", "Do this and that", LocalDate.now().minusDays(1), false, person);
+        Todo_item todoItem = new Todo_item("Todo", "Do this and that", LocalDate.now().minusDays(1), false, person);
         assertEquals(todoItem.isOverdue(), true);
     }
 

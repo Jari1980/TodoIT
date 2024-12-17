@@ -1,7 +1,7 @@
 package org.example.DAO;
 
 import org.example.Models.Person;
-import org.example.Models.TodoItem;
+import org.example.Models.Todo_item;
 import org.example.sequencers.TodoItemIdSequencer;
 
 import java.time.LocalDate;
@@ -9,19 +9,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 public class TodoItemDAOCollection implements TodoItemDAO {
-    private ArrayList<TodoItem> todoItemList = new ArrayList<>();
+    private ArrayList<Todo_item> todoItemList = new ArrayList<>();
 
 
     @Override
-    public TodoItem persist(String title, String taskDescription, LocalDate deadline, boolean done, Person creator) {
+    public Todo_item persist(String title, String taskDescription, LocalDate deadline, boolean done, Person creator) {
         int id = TodoItemIdSequencer.nextId();
-        todoItemList.add(new TodoItem(title, taskDescription, deadline, done, creator, id));
+        todoItemList.add(new Todo_item(title, taskDescription, deadline, done, creator, id));
         return todoItemList.getLast();
     }
 
     @Override
-    public TodoItem findById(int id) {
-        for(TodoItem todo : todoItemList){
+    public Todo_item findById(int id) {
+        for(Todo_item todo : todoItemList){
             if(todo.getId() == id){
                 return todo;
             }
@@ -30,14 +30,14 @@ public class TodoItemDAOCollection implements TodoItemDAO {
     }
 
     @Override
-    public Collection<TodoItem> findAll() {
+    public Collection<Todo_item> findAll() {
         return todoItemList;
     }
 
     @Override
-    public Collection<TodoItem> findAllByStatus(boolean done) {
-        ArrayList<TodoItem> temp = new ArrayList<>();
-        for(TodoItem item : todoItemList){
+    public Collection<Todo_item> findAllByStatus(boolean done) {
+        ArrayList<Todo_item> temp = new ArrayList<>();
+        for(Todo_item item : todoItemList){
             if(item.isDone()){
                 temp.add(item);
             }
@@ -46,9 +46,9 @@ public class TodoItemDAOCollection implements TodoItemDAO {
     }
 
     @Override
-    public Collection<TodoItem> findByTitleContains(String title) {
-        ArrayList<TodoItem> temp = new ArrayList<>();
-        for(TodoItem item : todoItemList){
+    public Collection<Todo_item> findByTitleContains(String title) {
+        ArrayList<Todo_item> temp = new ArrayList<>();
+        for(Todo_item item : todoItemList){
             if(item.getTitle().contains(title)){
                 temp.add(item);
             }
@@ -57,9 +57,9 @@ public class TodoItemDAOCollection implements TodoItemDAO {
     }
 
     @Override
-    public Collection<TodoItem> findByPersonId(int personId) {
-        ArrayList<TodoItem> temp = new ArrayList<>();
-        for(TodoItem item : todoItemList){
+    public Collection<Todo_item> findByPersonId(int personId) {
+        ArrayList<Todo_item> temp = new ArrayList<>();
+        for(Todo_item item : todoItemList){
             if(item.getCreator().getId() == personId){
                 temp.add(item);
             }
@@ -68,9 +68,9 @@ public class TodoItemDAOCollection implements TodoItemDAO {
     }
 
     @Override
-    public Collection<TodoItem> findByDeadlineBefore(LocalDate date) {
-        ArrayList<TodoItem> temp = new ArrayList<>();
-        for(TodoItem item : todoItemList){
+    public Collection<Todo_item> findByDeadlineBefore(LocalDate date) {
+        ArrayList<Todo_item> temp = new ArrayList<>();
+        for(Todo_item item : todoItemList){
             if(item.getDeadline().isBefore(date)){
                 temp.add(item);
             }
@@ -79,9 +79,9 @@ public class TodoItemDAOCollection implements TodoItemDAO {
     }
 
     @Override
-    public Collection<TodoItem> findByDeadLineAfter(LocalDate date) {
-        ArrayList<TodoItem> temp = new ArrayList<>();
-        for(TodoItem item : todoItemList){
+    public Collection<Todo_item> findByDeadLineAfter(LocalDate date) {
+        ArrayList<Todo_item> temp = new ArrayList<>();
+        for(Todo_item item : todoItemList){
             if(item.getDeadline().isAfter(date)){
                 temp.add(item);
             }
@@ -91,7 +91,7 @@ public class TodoItemDAOCollection implements TodoItemDAO {
 
     @Override
     public void remove(int id) {
-        for(TodoItem item : todoItemList){
+        for(Todo_item item : todoItemList){
             if(item.getId() == id){
                 todoItemList.remove(item);
             }

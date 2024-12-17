@@ -1,18 +1,15 @@
 package org.example.Models;
 
-import org.example.sequencers.TodoItemIdSequencer;
-import org.example.sequencers.TodoItemTaskIdSequencer;
-
 import java.util.Objects;
 
 public class TodoItemTask {
     //private static int counter = 1;
     private int id;
     private boolean assigned;
-    private TodoItem todoItem;
+    private Todo_item todoItem;
     private Person assignee;
 
-    public TodoItemTask(TodoItem todoItem, Person assignee, int id) {
+    public TodoItemTask(Todo_item todoItem, Person assignee, int id) {
         if (assignee != null){
             this.assigned = true;
         }
@@ -22,7 +19,7 @@ public class TodoItemTask {
         //this.id = TodoItemIdSequencer.nextId();
     }
 
-    public TodoItemTask(TodoItem todoItem, int id) {
+    public TodoItemTask(Todo_item todoItem, int id) {
         this.todoItem = Objects.requireNonNull(todoItem, "TodoItem cant be null.");
         this.id = id;
         //TodoItemTaskIdSequencer.nextId();
@@ -59,7 +56,7 @@ public class TodoItemTask {
         return assigned;
     }
 
-    public TodoItem getTodoItem() {
+    public Todo_item getTodoItem() {
         return todoItem;
     }
 
@@ -67,7 +64,7 @@ public class TodoItemTask {
         return assignee;
     }
 
-    public void setTodoItem(TodoItem todoItem) {
+    public void setTodoItem(Todo_item todoItem) {
         this.todoItem = Objects.requireNonNull(todoItem, "TodoItem cant be null.");
     }
 
