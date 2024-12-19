@@ -27,7 +27,16 @@ public class Person {
         //this.id = PersonIdSequencer.nextId();
     }
 
-
+    //Creating two constructors in order to be able do JDBC assignment
+    public Person(String first_name, String last_name) {
+        this.first_name = Objects.requireNonNull(first_name, "No null firstname!");
+        this.last_name = Objects.requireNonNull(last_name, "No null lastname!");
+    }
+    public Person(int person_id, String first_name, String last_name) {
+        this.person_id = person_id;
+        this.first_name = first_name;
+        this.last_name = last_name;
+    }
 
     @Override
     public String toString(){
@@ -64,6 +73,10 @@ public class Person {
     //    this.id = id;
     //}
 
+
+    public void setPerson_id(int person_id) { //Adding for JDBC
+        this.person_id = person_id;
+    }
     public void setFirstName(String firstName) {
         this.first_name = Objects.requireNonNull(firstName, "No change to null firstname!");;
     }
