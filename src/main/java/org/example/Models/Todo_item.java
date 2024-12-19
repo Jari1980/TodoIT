@@ -25,6 +25,27 @@ public class Todo_item {
         this.todo_id = id;
     }
 
+    //Adding default constructor and constructor w/o todo_id used in db implementation and w/o assignee
+
+
+    public Todo_item(int todo_id, String title, String description, LocalDate deadline, boolean done) {
+        this.todo_id = todo_id;
+        this.title = title;
+        this.description = description;
+        this.deadline = deadline;
+        this.done = done;
+    }
+
+    public Todo_item(String title, String description, LocalDate deadline, boolean done, Person creator) {
+        this.title = title;
+        this.description = description;
+        this.deadline = deadline;
+        this.done = done;
+        this.creator = creator;
+    }
+    public Todo_item() {
+    }
+
     @Override
     public String toString(){
         //System.out.println("id: " + id + "\ntitle: " + title + "\ndecription: " + taskDescription + "\ndeadline: " + deadline +
@@ -101,6 +122,11 @@ public class Todo_item {
 
     public Person getCreator() {
         return creator;
+    }
+
+
+    public void setTodo_id(int todo_id) {
+        this.todo_id = todo_id;
     }
 
     @Override

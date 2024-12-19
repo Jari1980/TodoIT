@@ -10,6 +10,7 @@ import org.example.DAOStream.AppUserDAOCollectionStream;
 import org.example.Models.AppRole;
 import org.example.Models.AppUser;
 import org.example.Models.Person;
+import org.example.Models.Todo_item;
 import org.example.sequencers.PersonIdSequencer;
 import org.example.sequencers.TodoItemIdSequencer;
 import org.example.sequencers.TodoItemTaskIdSequencer;
@@ -22,7 +23,63 @@ import static org.example.db.MySQLConnection.getConnection;
 public class Main {
     public static void main(String[] args) {
 
+        //----------------Testing implementation of TodoItemDAOCollection---------------------------------
+        TodoItemDAOCollection testProg2 = new TodoItemDAOCollection();
+        Person inDb = new Person(5, "Jari", "TestarMer"); //Using existing persons in db as assignees
+        Person inDb2 = new Person(4, "Jari", "Testar");
 
+        //Testing add todo_item //Working
+
+        //System.out.println(testProg2.create(new Todo_item("Eat Broccoli", "Eat Good", LocalDate.of(2024,12,12), false, inDb)));
+        //System.out.println(testProg2.create(new Todo_item("Eat Broccoli", "Eat A Lot", LocalDate.of(2024,12,31), false, inDb)));
+        //System.out.println(testProg2.create(new Todo_item("Drink Beer", "Enjoy", LocalDate.of(2024,12,12), false, inDb2)));
+        //System.out.println(testProg2.create(new Todo_item("Have Snus", "mm", LocalDate.of(2024,12,12), true, inDb)));
+        //System.out.println(testProg2.create(new Todo_item("Have Snus", "mm", LocalDate.of(2024,12,31), true, null)));
+
+
+        //Testing findby todo_id //Working
+
+        //System.out.println(testProg2.findById(1));
+
+
+        //Testing find all todo_item //Working
+
+        //System.out.println(testProg2.findAll());
+
+
+        //Testing find by done //Working
+
+        //System.out.println(testProg2.findByDoneStatus(false));
+
+
+        //Testing find by assignee //Working
+
+        //System.out.println(testProg2.findByAssignee(5));
+
+
+        //Testing find by assignee (v2) //Working
+
+        //PersonDAOCollection testProg22 = new PersonDAOCollection();
+        //System.out.println(testProg2.findByAssignee(testProg22.findById(4)));
+
+
+        //Testing by unassigned todos //Working
+
+        //System.out.println(testProg2.findByUnassignedTodoItems());
+
+
+        //Testing uppdate todo_item //Working
+
+        //Todo_item existing = new Todo_item("Eat Broccoli", "Eat Like Never Before", LocalDate.of(2024,12,12), false, inDb, 1);
+        //System.out.println(testProg2.update(existing));
+
+
+        //Testing remove  //Working
+
+        //testProg2.remove(4);
+
+
+        //----------------Testing implementation of PersonDAOCollection-------------------------------
         PersonDAOCollection testProg = new PersonDAOCollection();
 
 
@@ -59,8 +116,7 @@ public class Main {
 
         //testProg.remove(3);
 
-
-
+        //----------------------------------------------------------------------------------
 
 
 
