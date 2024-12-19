@@ -23,25 +23,49 @@ public class Main {
     public static void main(String[] args) {
 
 
-        String sql = "SELECT * FROM CUSTOMER";
-        try(
-                Connection connection1 = getConnection();
-                Statement statement = connection1.createStatement();
-                ResultSet resultSet = statement.executeQuery(sql);
-                ){
-            while(resultSet.next()){
-                System.out.println("Id: " + resultSet.getString("customer_id"));
-                System.out.println("Name: " + resultSet.getString("cust_name"));
-                System.out.println("City: " + resultSet.getString("city"));
-            }
-        }
-        catch(SQLException e){
-            e.getStackTrace();
-        }
+        PersonDAOCollection testProg = new PersonDAOCollection();
+
+
+        //Testing add person //Works fine
+
+        //System.out.println(testProg.create("Broccoli", "Broccolison"));
+        //System.out.println(testProg.create("Broccoli", "Snusson"));
+        //System.out.println(testProg.create("Broccoli", "Tomte"));
+        //System.out.println(testProg.create("Jari", "Testar"));
+        //System.out.println(testProg.create("Jari", "TestarMer"));
+
+
+        //Testing findBy id //Works fine
+
+        //System.out.println(testProg.findById(4));
+
+
+        //Testing find by name //Works fine
+
+        //System.out.println(testProg.findByName("roc"));
+
+
+        //Testing find all //Works fine
+
+        //System.out.println(testProg.findAll());
+
+
+        //Testing update person //Works
+
+        //System.out.println(testProg.update(new Person(1, "Updated Broccoli", "Broccolison")));
+
+
+        //Testing remove person //Works fine
+
+        //testProg.remove(3);
 
 
 
 
+
+
+
+        // Below is tests for older part 1-3 assignments
 
         /*
         AppUserDAOCollectionStream userAdmin = new AppUserDAOCollectionStream();

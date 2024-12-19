@@ -5,7 +5,7 @@ import org.example.Models.Person;
 import java.util.Collection;
 
 public interface PersonDAO {
-    Person create(String firstName, String lastName, String email); // refactored persist -> create
+    Person create(String firstName, String lastName); // refactored persist -> create
     Person findById(int id);
     // Person findByEmail(String email); //Not used in new refactor
     Collection<Person> findByName(String name); //Added
